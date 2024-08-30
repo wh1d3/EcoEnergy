@@ -41,10 +41,10 @@ Here are images of each page of the site. Click on an image to view it in full s
   
 ## Technical Details
 
-- HTML5**: Structure and markup of web pages.
-- CSS3**: Page styling, including responsive design and animations.
-- JavaScript: Additional interactive elements, including animations and block pop-up effects.
-- AOS (Animate On Scroll): A library for animations when the page scrolls.
+- **HTML5**: Structure and markup of web pages.
+- **CSS3**: Page styling, including responsive design and animations.
+- **JavaScript**: Additional interactive elements, including animations and block pop-up effects.
+- **AOS (Animate On Scroll)**: A library for animations when the page scrolls.
 - **C#**: Back-End.
 
 ## Installation.
@@ -59,7 +59,7 @@ Here are images of each page of the site. Click on an image to view it in full s
     cd EcoEnergy
     ```
 
-3. run the command**:
+3. **Run the command**:
    ```bash
    dotnet run
    ```
