@@ -1,0 +1,354 @@
+﻿@{
+    ViewData["Title"] = "Головна";
+}
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - EcoEnergy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <style>
+        /* CSS */
+        
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: #343a40;
+            width: 100%;
+            background-color: #4682B4;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            scroll-behavior: smooth;
+        }
+
+        .bg {
+            position: absolute;
+            z-index: 1;
+            left: -10px;
+            top: -10px;
+            right: -10px;
+            bottom: -10px;
+            filter: blur(10px);
+            background-color: #4682B4;
+            background-size: cover;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        .content1 {
+            position: relative;
+            z-index: 2;
+            box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+        }
+
+        nav {
+            background-color: #28a745;
+            padding: 15px;
+            text-align: center;
+            width: 100%;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        nav a:hover {
+            color: darkslateblue;
+        }
+
+        .jumbotron {
+            position: relative;
+            z-index: 3;
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            padding: 100px 25px;
+            margin-bottom: 0;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 1240px;
+        }
+
+        .jumbotron h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .jumbotron p.lead {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 40px;
+        }
+
+        .btn-primary {
+            background-color: #28a745;
+            border-color: #28a745;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+        }
+
+        .section {
+            padding: 60px 15px;
+            text-align: center;
+            background-color: #ffffff;
+            width: 100%;
+        }
+
+        .section:nth-child(even) {
+            background-color: #e9f7ef;
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #28a745;
+        }
+
+        .section p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .btn-secondary {
+            background-color: #ffffff;
+            border-color: #28a745;
+            color: #28a745;
+        }
+
+        .btn-secondary:hover {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .features {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 200vh;
+            overflow: hidden;
+        }
+
+        .feature {
+            width: 80%;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: opacity 1s ease, transform 1s ease;
+            margin-top: 500px;
+        }
+
+        .feature h3 {
+            font-size: 1.8rem;
+            color: #28a745;
+            margin-bottom: 15px;
+        }
+
+        .feature p {
+            font-size: 1rem;
+            color: #6c757d;
+        }
+
+        .feature.visible {
+            opacity: 1;
+            transform: translateY(0);
+            visibility: visible;
+        }
+
+        .repeat {
+            color: #555;
+        }
+
+        .testimonials {
+            background-color: #e9f7ef;
+            padding: 60px 15px;
+            text-align: center;
+            width: 100%;
+        }
+
+        .testimonial {
+            margin-bottom: 30px;
+            font-style: italic;
+            color: #555;
+        }
+
+        .testimonial .author {
+            font-weight: 600;
+            color: #28a745;
+        }
+
+        .footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .footer a {
+            color: #28a745;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="content">
+    <!--Navigation-->
+    <nav>
+        <a asp-action="Index">Головна</a>
+        <a asp-action="About">Про нас</a>
+        <a href="https://t.me/EcoEnergyUA_Bot">Послуги</a>
+        <a asp-action="Contact">Контакти</a>
+    </nav>
+</div>
+    <!--Jumbtron-->
+    <div class="jumbotron">
+        <h1 class="display-4">Ласкаво просимо до EcoEnergy!</h1>
+        <p class="lead">Зелена енергія для вашого дому та бізнесу.</p>
+        <hr class="my-4">
+        <p>Забезпечуємо екологічно чисту та безпечну електроенергію для кращого майбутнього.</p>
+        <a class="btn btn-primary btn-lg" role="button" asp-action="About">Дізнатися більше</a>
+    </div>
+<div class="content1">
+    <!--Why we-->
+    <div class="section" id="why-choose-us">
+        <h2>Чому обирають нас?</h2>
+        <div class="features">
+            <div class="feature" data-aos="fade-right">
+                <h3>Надійність</h3>
+                <p>Гарантуємо безперебійне постачання електроенергії за будь-яких умов.</p>
+            </div>
+            <div class="feature" data-aos="fade-left">
+                <h3>Екологічність</h3>
+                <p>Використовуємо лише відновлювані джерела енергії, щоб мінімізувати вплив на довкілля.</p>
+            </div>
+            <div class="feature" data-aos="fade-right">
+                <h3>Технології</h3>
+                <p>Наші передові рішення дозволяють вам економити на електроенергії та зменшувати викиди вуглецю.</p>
+            </div>
+        </div>
+    </div>
+
+    <!--Reviews-->
+    <div class="testimonials">
+        <h2 class="repeat">Відгуки наших клієнтів</h2>
+        <div class="testimonial">
+            <p>“EcoEnergy допомогло нам зменшити витрати на електроенергію та перейти на екологічно чисті джерела!”</p>
+            <p class="author">— Іван Іванов, клієнт</p>
+        </div>
+        <div class="testimonial">
+            <p>“Я у захваті від сервісу та надійності EcoEnergy. Це найкращий вибір для мого бізнесу.”</p>
+            <p class="author">— Ольга Петрова, бізнес-клієнт</p>
+        </div>
+        <div class="testimonial">
+            <p>“Неймовірний сервіс!”</p>
+            <p class="author">— Микита Василенко, клієнт</p>
+        </div>
+    </div>
+
+    <!--Footer-->
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">© 2024 EcoEnergy. Всі збіги з реальністю випадкові. | <a asp-action="Privacy">Політика конфіденційності</a></span>
+        </div>
+    </footer>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+//Animate class="section"    
+        AOS.init({
+            duration: 1200,
+            once: true
+        });
+
+        function handleScroll() {
+            const features = document.querySelectorAll('.feature');
+            const windowHeight = window.innerHeight;
+            const scrollY = window.scrollY;
+
+            features.forEach((feature, index) => {
+                const featureTop = feature.getBoundingClientRect().top + scrollY;
+                const featureHeight = feature.offsetHeight;
+
+                if (scrollY + windowHeight > featureTop + featureHeight / 4) {
+                    feature.classList.add('visible');
+                } else {
+                    feature.classList.remove('visible');
+                }
+            });
+        }
+        window.addEventListener('scroll', handleScroll);
+        handleScroll();
+    });
+
+
+//Hide <div> 
+    var animating = false;
+    var object1 = $('jumbotron');
+    var object2 = $('section');
+    var object3 = $('testimonials');
+
+    $(window).scroll(function() {
+        if(!animating) { 
+            animating = true;
+            object1.fadeToggle({
+                duration: 800, 
+                easing: "linear",
+                complete: function () {
+                    animating = false; 
+                }
+            });
+                
+            object2.fadeToggle({ 
+                duration: 800, 
+                easing: "linear", 
+                complete: function () {
+                    animating = false;
+                }
+            });
+                
+            object3.fadeToggle({ 
+                duration: 800, 
+                easing: "linear",
+                complete: function () { 
+                    animating = false;
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>

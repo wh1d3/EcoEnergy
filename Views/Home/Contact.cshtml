@@ -1,0 +1,179 @@
+﻿@{
+    ViewData["Title"] = "Контакти";
+}
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - EcoEnergy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: #343a40;
+            width: 100%;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            scroll-behavior: smooth;
+        }
+
+        nav {
+            background-color: #28a745;
+            padding: 15px;
+            text-align: center;
+            width: 100%;
+        }
+
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        nav a:hover {
+            color: darkslateblue;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content {
+            box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+        }
+            
+        .section {
+            margin-bottom: 700px; 
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            justify-content: center;
+            min-height: 900px; 
+        }
+
+        .section h2 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #28a745;
+            text-align: center;
+        }
+
+        .section p {
+            font-size: 1.2rem;
+            text-align: center;
+            max-width: 800px; 
+        }
+
+        .contact-form {
+            max-width: 600px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .contact-form h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #28a745;
+            text-align: center;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            background-color: #28a745;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .contact-form button:hover {
+            background-color: #218838;
+        }
+
+        .footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+        }
+
+        .footer a {
+            color: #28a745;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div class="content">
+    <nav>
+        <a href="/">Головна</a>
+        <a href="/Home/About">Про нас</a>
+        <a href="https://t.me/EcoEnergyUA_Bot">Послуги</a>
+        <a href="/Home/Contact">Контакти</a>
+    </nav>
+
+    <div class="container">
+        <div class="section" id="contact">
+            <h2 data-aos="fade-up">Контакти</h2>
+            <div class="contact-form" data-aos="fade-up">
+                <h3>Залиште нам повідомлення</h3>
+                <form action="/send-message" method="post">
+                    <input type="text" name="name" placeholder="Ваше ім'я" required>
+                    <input type="email" name="email" placeholder="Ваша електронна пошта" required>
+                    <input type="tel" name="phone" placeholder="Ваш телефон" required>
+                    <textarea name="message" placeholder="Ваше повідомлення" required></textarea>
+                    <button type="submit">Відправити</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <span class="text-muted">© 2024 EcoEnergy. Всі збіги з реальністю випадкові. | <a asp-action="Privacy">Політика конфіденційності</a></span>
+        </div>
+    </footer>
+</div>
+
+    <script>
+        AOS.init({
+            duration: 1200,
+            once: true
+        });
+    </script>
+</body>
+</html>
